@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon --watch . --ext js,html,css,xml,json",
+    "start": "node index.js",
     "install": "npm i express nodemon cheerio"
   },
   "keywords": [],
