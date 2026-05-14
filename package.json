@@ -1,0 +1,19 @@
+{
+  "name": "hacking",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon --watch . --ext js,html,css,xml,json",
+    "install": "npm i express nodemon cheerio"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "cheerio": "^1.2.0",
+    "express": "^5.2.1",
+    "nodemon": "^3.1.14"
+  }
+}
